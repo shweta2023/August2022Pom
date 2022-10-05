@@ -14,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -55,7 +56,6 @@ public class BaseClass  {
 		
 		@AfterMethod
 		public static void tearDown() {
-			Logger.info("After method execution has started");
 			closeBrowser();
 		}
 	@AfterTest
@@ -82,20 +82,20 @@ public class BaseClass  {
 public static void clearElement(WebElement element, String objname) {
 	if(element.isDisplayed()) {
 		element.clear();
-		report.logTestInfo("pass:" + objname +"element cleared");
+		report.logPass("pass:" + objname +"element cleared");
 	}
 	else {
-		report.logTestInfo("fail:" + objname + "element not displayed");
+		report.logFail("fail:" + objname + "element not displayed");
 	}
 }
 	public static void enterText(WebElement element,String text,String objname) {
 		if(element.isDisplayed()) {
 			clearElement(element,objname);
 			element.sendKeys(text);
-			report.logTestInfo("text entered in" + objname + "field");;
+			report.logPass("text entered in" + objname + "field");;
 		}
 		else {
-			report.logTestInfo("Fail" + objname +"element is not displayed ");
+			report.logFail("Fail" + objname +"element is not displayed ");
 		
 		}
 	}
@@ -103,10 +103,10 @@ public static void clearElement(WebElement element, String objname) {
 		if(element.isDisplayed()) {
 			
 			element.click();
-			Logger.info("pass" + objname + "element is clicked");
+			report.logPass("pass" + objname + "element is clicked");
 		}
 		else {
-			Logger.error("Fail" + objname +"element is not displayed ");
+			report.logFail("Fail" + objname +"element is not displayed ");
 		}
 	}
 	public static void closeBrowser(){
@@ -175,6 +175,14 @@ public static void clearElement(WebElement element, String objname) {
 	public static void waitUntilPageLoads() {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 	}
-	
+	public static void assertEquals(Object one, Object two) {
+		try {
+		Assert.assertEquals(one, two);
+		report.logPass("Validation Passed");
+		}catch(Exception e) {
+			report.logFail("Validation failed");
+
+		}
+	}
 
 	}	

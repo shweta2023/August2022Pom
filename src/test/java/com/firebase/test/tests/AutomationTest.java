@@ -21,13 +21,10 @@ public class AutomationTest extends BaseClass{
         
 	@Test
 	public static void loginSalesforce1() {
-		 CommonUtilities CU = new CommonUtilities();
-Properties applicationPropertiesFile = CU.loadfile("applicationProperties");
-	String usrname = CU.getApplicationProperty("usrname", applicationPropertiesFile);
-	String passwrd = CU.getApplicationProperty("passwrd", applicationPropertiesFile);
+	
 	LoginPage login=new LoginPage(driver);
-	login.login(usrname, passwrd);
-	report.logTestInfo("testscript execution is completed");
+	login.login();
+	report.logPass("testscript execution is completed");
 	}
 	
 	
@@ -49,7 +46,7 @@ Properties applicationPropertiesFile = CU.loadfile("applicationProperties");
 		WebElement loginbutton = driver.findElement(By.xpath("//*[@id=\"Login\"]"));
 		waitUntilVisible(loginbutton,"Loginbutton");
 	    clickElement(loginbutton,"login button");
-	   report.logTestInfo("testscript execution completed");
+	   report.logPass("testscript execution completed");
   		
   		
     		
@@ -66,17 +63,14 @@ Properties applicationPropertiesFile = CU.loadfile("applicationProperties");
       @Test
 public static void checkRememberMe3()throws InterruptedException, IOException   {
 	
-    
-	loginToSalesforceMethod();
-	String expected = "mail2raju@2001";
+    LoginPage login=new LoginPage(driver);
+    login.login();
+    String expected = "mail2raju2001@gmail.com";
 	HomePage page = new HomePage(driver);
 	page.logout();
-	LoginPage login=new LoginPage(driver);
-	
+	Thread.sleep(5000);
 	String actual = login.getUserName();
-	Assert.assertEquals(actual, expected);
-	report.logTestPassed("testscript execution completed");
-		
+	assertEquals(actual, expected);		
 	
 }	
       @Test

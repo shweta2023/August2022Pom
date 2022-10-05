@@ -5,10 +5,16 @@
     <classes>
       <class name="com.firebase.test.tests.AutomationTest">
         <methods>
-          <include name="tearDownAfterTest"/>
-          <include name="tearDown"/>
-          <include name="loginSalesforce1"/>
+          <include name="checkRememberMe3"/>
           <include name="setUp"/>
+          <include name="tearDownAfterTest"/>
+          <include name="loginToSalesforce1"/>
+          <include name="loginErrorMessage"/>
+          <include name="loginSalesforce1"/>
+          <include name="tearDown"/>
+          <include name="ForgotPassword4A"/>
+          <include name="ForgotPassword4B"/>
+          <include name="chromeTC05"/>
           <include name="setupBeforeTest"/>
         </methods>
       </class> <!-- com.firebase.test.tests.AutomationTest -->

@@ -32,7 +32,7 @@ public class BasePage  {
 	
 	public static WebDriver driver;
 	public BasePage(WebDriver driver) {
-		this.driver = driver;
+		BasePage.driver = driver;
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -47,30 +47,32 @@ public class BasePage  {
 public static void clearElement(WebElement element, String objname) {
 	if(element.isDisplayed()) {
 		element.clear();
-		report.logTestInfo("pass:" + objname +"element cleared");
+		report.logPass("pass:" + objname +"element cleared");
 	}
 	else {
-		report.logTestInfo("fail:" + objname + "element not displayed");
+		report.logFail("fail:" + objname + "element not displayed");
 	}
 }
 	public static void enterText(WebElement element,String text,String objname) {
 		if(element.isDisplayed()) {
 			clearElement(element,objname);
 			element.sendKeys(text);
-			report.logTestInfo("text entered in" + objname + "field");;
+			report.logPass("text entered in" + objname + "field");;
 		}
 		else {
-			report.logTestInfo("Fail" + objname +"element is not displayed ");
+			report.logFail("Fail" + objname +"element is not displayed ");
 		
 		}
 	}
 	public static void clickElement(WebElement element,String objname) {
+		
 		if(element.isDisplayed()) {
 			
 			element.click();
 			Logger.info("pass" + objname + "element is clicked");
 		}
 		else {
+			
 			Logger.error("Fail" + objname +"element is not displayed ");
 		}
 	}
@@ -110,7 +112,6 @@ public static void clearElement(WebElement element, String objname) {
 	{
 	     wait = new WebDriverWait(driver,Duration.ofSeconds(30));
 	     wait.until(ExpectedConditions.alertIsPresent());
-	     
 	}
 	public static String readText(WebElement element,String objname) {
 	waitUntilVisible(element,objname);

@@ -29,8 +29,8 @@ public class HomePage extends BasePage{
 	}
 	public void logout() {
 		clickName() ;
-		clickElement(logout,"logout");
 		waitUntilVisible(logout,"logout");	
+		clickElement(logout,"logout");
 	}
 	/*public void dropdownselect() {
 	

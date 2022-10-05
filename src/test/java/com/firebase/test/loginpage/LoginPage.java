@@ -1,5 +1,7 @@
 package com.firebase.test.loginpage;
 
+import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.firebase.test.utility.CommonUtilities;
 import com.firebase.tests.pages.base.BasePage;
 
 public class LoginPage extends BasePage{
@@ -49,13 +52,20 @@ WebElement username = driver.findElement(By.id("username"));
 	 clickElement(forgotpassword,"ForgotPassword");
  }
  
- public void login(String usrname, String passwrd) {
-	 enterusername(usrname);
-	 enterPassword(passwrd);
+ public void login() {
+	 CommonUtilities CU = new CommonUtilities();
+     Properties applicationPropertiesFile = CU.loadfile("applicationProperties");
+		String username = CU.getApplicationProperty("usrname",applicationPropertiesFile);
+		String password = CU.getApplicationProperty("passwrd",applicationPropertiesFile);
+	 enterusername(username);
+	 enterPassword(password);
 	 clickRememberme();
 	 clickLoginbutton();
  }
 public String getUserName() {
+	WebElement username = driver.findElement(By.xpath("//*[@id=\"idcard-identity\"]"));
+
+	waitUntilPageLoads();
 		String text =  username.getText();
 		return text;
 	}
