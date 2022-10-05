@@ -1,5 +1,6 @@
-package com.firsebase.test.base;
+package com.firebase.test.base;
 
+import java.lang.reflect.Method;
 import java.time.Duration;
 import java.util.Properties;
 
@@ -14,7 +15,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -29,11 +32,17 @@ public class BaseClass  {
 	public static WebDriver driver = null;
 	public static WebDriverWait wait = null;
 	public static Logger Logger =  LogManager.getLogger(BaseClass.class);
+	public static GenerateReports report = GenerateReports.getInstance();
+	@BeforeTest
+	public static void setupBeforeTest(){
+		report.startExtentReport();
+	}
+	
 	@Parameters({"browsername"})
 	@BeforeMethod
-	public static void setUp(String browsername) {
+	public static void setUp(String browsername, Method m) {
 		System.out.println("Before method execution has started");
-		
+		report.startsSingleTestReport(m.getName());
 		getdriver(browsername);
 		 CommonUtilities CU = new CommonUtilities();
 	        Properties applicationPropertiesFile = CU.loadfile("applicationProperties");
@@ -49,6 +58,10 @@ public class BaseClass  {
 			Logger.info("After method execution has started");
 			closeBrowser();
 		}
+	@AfterTest
+	public static void tearDownAfterTest() {
+		report.endReport();
+	}
 	
 	public static void getdriver(String browser) {
 		
@@ -69,20 +82,21 @@ public class BaseClass  {
 public static void clearElement(WebElement element, String objname) {
 	if(element.isDisplayed()) {
 		element.clear();
-		Logger.info("pass:" + objname +"element cleared" );
+		report.logTestInfo("pass:" + objname +"element cleared");
 	}
 	else {
-		Logger.error("fail:" + objname + "element not displayed");
+		report.logTestInfo("fail:" + objname + "element not displayed");
 	}
 }
 	public static void enterText(WebElement element,String text,String objname) {
 		if(element.isDisplayed()) {
 			clearElement(element,objname);
 			element.sendKeys(text);
-			Logger.info("text entered in" + objname + "field");
+			report.logTestInfo("text entered in" + objname + "field");;
 		}
 		else {
-			Logger.error("Fail" + objname +"element is not displayed ");
+			report.logTestInfo("Fail" + objname +"element is not displayed ");
+		
 		}
 	}
 	public static void clickElement(WebElement element,String objname) {
@@ -96,6 +110,12 @@ public static void clearElement(WebElement element, String objname) {
 		}
 	}
 	public static void closeBrowser(){
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		driver.close();
 	}
 	public static void closeAllBrowser() {
@@ -135,11 +155,10 @@ public static void clearElement(WebElement element, String objname) {
 	public static void loginToSalesforceMethod() {
 		CommonUtilities CU = new CommonUtilities();
         Properties applicationPropertiesFile = CU.loadfile("applicationProperties");
-		String url = CU.getApplicationProperty("url",applicationPropertiesFile);
+		
 		String usrname = CU.getApplicationProperty("usrname",applicationPropertiesFile);
 		String passwrd = CU.getApplicationProperty("passwrd",applicationPropertiesFile);
-        goToUrl(url);
-        waitUntilPageLoads();
+        
 		WebElement username = driver.findElement(By.id("username"));
 		waitUntilVisible(username,"username");
     	enterText(username,usrname,"user name");

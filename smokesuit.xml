@@ -6,7 +6,7 @@
       <class name="com.firebase.test.tests.AutomationTest">
        <methods>
         
-        <exclude name="addEmployeeTestCase" />
+        <include name="addEmployeeTestCase" />
       </methods>
        </class>
      

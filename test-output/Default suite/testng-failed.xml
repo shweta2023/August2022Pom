@@ -5,9 +5,11 @@
     <classes>
       <class name="com.firebase.test.tests.AutomationTest">
         <methods>
+          <include name="tearDownAfterTest"/>
           <include name="tearDown"/>
-          <include name="loginErrorMessage"/>
+          <include name="loginSalesforce1"/>
           <include name="setUp"/>
+          <include name="setupBeforeTest"/>
         </methods>
       </class> <!-- com.firebase.test.tests.AutomationTest -->
     </classes>
