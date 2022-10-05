@@ -3,4 +3,4 @@ cd "C:\Users\shwet\eclipse-workspace\SeleniumAutomationFramework2POM"
 git add .
 set /p commitm="Commit Msg: "
 git commit -m %commitm%
-git push origin
+git push origin2
