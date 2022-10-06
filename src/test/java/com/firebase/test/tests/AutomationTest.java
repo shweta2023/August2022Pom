@@ -124,7 +124,7 @@ public static void ForgotPassword4B()throws InterruptedException, IOException   
  public static void chromeTC05() throws IOException, InterruptedException {
 	 
     	 LoginPage login=new LoginPage(driver);
-    	    login.login();
+   
     	 
 	   login.loginToSalesforceMethod();
 		WebElement shradha= driver.findElement(By.id("userNav"));

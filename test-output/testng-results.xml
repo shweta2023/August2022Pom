@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="5" total="6" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-10-05T17:08:15 PDT" name="Suite1" finished-at="2022-10-05T17:08:30 PDT" duration-ms="15775">
+  <suite started-at="2022-10-05T17:21:05 PDT" name="Suite1" finished-at="2022-10-05T17:22:55 PDT" duration-ms="109726">
     <groups>
     </groups>
-    <test started-at="2022-10-05T17:08:15 PDT" name="Regression" finished-at="2022-10-05T17:08:30 PDT" duration-ms="15775">
+    <test started-at="2022-10-05T17:21:05 PDT" name="Regression" finished-at="2022-10-05T17:22:55 PDT" duration-ms="109726">
       <class name="com.firebase.test.tests.AutomationTest">
-        <test-method is-config="true" signature="setupBeforeTest()[pri:0, instance:com.firebase.test.tests.AutomationTest@6c2c1385]" started-at="2022-10-05T17:08:15 PDT" name="setupBeforeTest" finished-at="2022-10-05T17:08:15 PDT" duration-ms="209" status="PASS">
+        <test-method is-config="true" signature="setupBeforeTest()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:21:05 PDT" name="setupBeforeTest" finished-at="2022-10-05T17:21:05 PDT" duration-ms="149" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupBeforeTest -->
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.reflect.Method)[pri:0, instance:com.firebase.test.tests.AutomationTest@6c2c1385]" started-at="2022-10-05T17:08:15 PDT" name="setUp" finished-at="2022-10-05T17:08:20 PDT" duration-ms="5501" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.reflect.Method)[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:21:05 PDT" name="setUp" finished-at="2022-10-05T17:21:10 PDT" duration-ms="4821" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public static void com.firebase.test.tests.AutomationTest.ForgotPassword4A() throws java.lang.InterruptedException,java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="ForgotPassword4A()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:21:10 PDT" name="ForgotPassword4A" finished-at="2022-10-05T17:21:18 PDT" duration-ms="8198" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ForgotPassword4A -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:21:18 PDT" name="tearDown" finished-at="2022-10-05T17:21:24 PDT" duration-ms="5877" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.reflect.Method)[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:21:24 PDT" name="setUp" finished-at="2022-10-05T17:21:26 PDT" duration-ms="1918" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,15 +51,111 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="ForgotPassword4B()[pri:0, instance:com.firebase.test.tests.AutomationTest@6c2c1385]" started-at="2022-10-05T17:08:20 PDT" name="ForgotPassword4B" finished-at="2022-10-05T17:08:24 PDT" duration-ms="3658" status="PASS">
+        <test-method signature="ForgotPassword4B()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:21:26 PDT" name="ForgotPassword4B" finished-at="2022-10-05T17:21:30 PDT" duration-ms="3387" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ForgotPassword4B -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.firebase.test.tests.AutomationTest@6c2c1385]" started-at="2022-10-05T17:08:24 PDT" name="tearDown" finished-at="2022-10-05T17:08:30 PDT" duration-ms="5997" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:21:30 PDT" name="tearDown" finished-at="2022-10-05T17:21:35 PDT" duration-ms="5759" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownAfterTest()[pri:0, instance:com.firebase.test.tests.AutomationTest@6c2c1385]" started-at="2022-10-05T17:08:30 PDT" name="tearDownAfterTest" finished-at="2022-10-05T17:08:30 PDT" duration-ms="356" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.reflect.Method)[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:21:35 PDT" name="setUp" finished-at="2022-10-05T17:21:38 PDT" duration-ms="2640" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public static void com.firebase.test.tests.AutomationTest.checkRememberMe3() throws java.lang.InterruptedException,java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="checkRememberMe3()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:21:38 PDT" name="checkRememberMe3" finished-at="2022-10-05T17:21:58 PDT" duration-ms="19914" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkRememberMe3 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:21:58 PDT" name="tearDown" finished-at="2022-10-05T17:22:04 PDT" duration-ms="5519" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.reflect.Method)[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:22:04 PDT" name="setUp" finished-at="2022-10-05T17:22:06 PDT" duration-ms="2042" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public static void com.firebase.test.tests.AutomationTest.chromeTC05() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="chromeTC05()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:22:06 PDT" name="chromeTC05" finished-at="2022-10-05T17:22:17 PDT" duration-ms="11701" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- chromeTC05 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:22:17 PDT" name="tearDown" finished-at="2022-10-05T17:22:25 PDT" duration-ms="8053" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.reflect.Method)[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:22:25 PDT" name="setUp" finished-at="2022-10-05T17:22:27 PDT" duration-ms="1748" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public static void com.firebase.test.tests.AutomationTest.loginErrorMessage() throws java.lang.InterruptedException,java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="loginErrorMessage()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:22:27 PDT" name="loginErrorMessage" finished-at="2022-10-05T17:22:31 PDT" duration-ms="3504" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginErrorMessage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:22:31 PDT" name="tearDown" finished-at="2022-10-05T17:22:36 PDT" duration-ms="5769" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.reflect.Method)[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:22:36 PDT" name="setUp" finished-at="2022-10-05T17:22:39 PDT" duration-ms="2615" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public static void com.firebase.test.tests.AutomationTest.loginToSalesforce1() throws java.lang.InterruptedException,java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="loginToSalesforce1()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:22:39 PDT" name="loginToSalesforce1" finished-at="2022-10-05T17:22:48 PDT" duration-ms="9538" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginToSalesforce1 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:22:48 PDT" name="tearDown" finished-at="2022-10-05T17:22:54 PDT" duration-ms="5680" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="tearDownAfterTest()[pri:0, instance:com.firebase.test.tests.AutomationTest@558bdf1f]" started-at="2022-10-05T17:22:54 PDT" name="tearDownAfterTest" finished-at="2022-10-05T17:22:55 PDT" duration-ms="742" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownAfterTest -->

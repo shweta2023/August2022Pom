@@ -12,7 +12,7 @@
           <include name="setUp"/>
           <include name="tearDownAfterTest"/>
           <include name="tearDown"/>
-          <include name="ForgotPassword4B"/>
+          <include name="chromeTC05"/>
           <include name="setupBeforeTest"/>
         </methods>
       </class> <!-- com.firebase.test.tests.AutomationTest -->
