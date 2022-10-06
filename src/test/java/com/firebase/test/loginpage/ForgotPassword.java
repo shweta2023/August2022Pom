@@ -14,7 +14,7 @@ public class ForgotPassword extends BasePage {
 	@FindBy(id = "un")WebElement username;
 	@FindBy(name ="cancel")WebElement cancel;
 	@FindBy(id = "continue")WebElement Continue;
-	@FindBy(linkText = "Return To Login")WebElement Returntologin;
+	@FindBy(className = "primary")WebElement Returntologin;
 	
 	
 	public void enterusername(String usrname) {
@@ -37,7 +37,6 @@ public class ForgotPassword extends BasePage {
      public void forgotPassword(String usrname) {
     	 enterusername( usrname) ;
     	 clickContinue();
-    	 clickReturntologin();
     	 
      }
 	

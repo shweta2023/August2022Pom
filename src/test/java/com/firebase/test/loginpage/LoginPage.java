@@ -69,6 +69,31 @@ public String getUserName() {
 		String text =  username.getText();
 		return text;
 	}
+public static void loginToSalesforceMethod() {
+	CommonUtilities CU = new CommonUtilities();
+    Properties applicationPropertiesFile = CU.loadfile("applicationProperties");
+	
+	String usrname = CU.getApplicationProperty("usrname",applicationPropertiesFile);
+	String passwrd = CU.getApplicationProperty("passwrd",applicationPropertiesFile);
+    
+	WebElement username = driver.findElement(By.id("username"));
+	waitUntilVisible(username,"username");
+	enterText(username,usrname,"user name");
+	WebElement password = driver.findElement(By.id("password"));
+	waitUntilVisible(password,"password");
+	enterText(password,passwrd,"pass word");
+	 WebElement rememberme = driver.findElement(By.name("rememberUn"));
+	    clickElement(rememberme,"remember me");
+	WebElement loginbutton = driver.findElement(By.xpath("//*[@id=\"Login\"]"));
+	waitUntilVisible(loginbutton,"loginbutton");
+	clickElement(loginbutton,"login button");
+	
+}
+
+
+
+
+
 }
 	 
  

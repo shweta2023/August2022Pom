@@ -65,16 +65,17 @@ public static void clearElement(WebElement element, String objname) {
 		}
 	}
 	public static void clickElement(WebElement element,String objname) {
-		
-		if(element.isDisplayed()) {
-			
+			try {
+			Thread.sleep(2000);
+			}catch(Exception e) {
+				report.logFail("Thread.sleep error");
+			}
 			element.click();
 			Logger.info("pass" + objname + "element is clicked");
-		}
-		else {
+		
 			
 			Logger.error("Fail" + objname +"element is not displayed ");
-		}
+		
 	}
 	public static void closeBrowser(){
 		try {

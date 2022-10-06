@@ -9,10 +9,10 @@
     <classes>
       <class name="com.firebase.test.tests.AutomationTest">
         <methods>
-          <include name="checkRememberMe3"/>
           <include name="setUp"/>
           <include name="tearDownAfterTest"/>
           <include name="tearDown"/>
+          <include name="ForgotPassword4B"/>
           <include name="setupBeforeTest"/>
         </methods>
       </class> <!-- com.firebase.test.tests.AutomationTest -->

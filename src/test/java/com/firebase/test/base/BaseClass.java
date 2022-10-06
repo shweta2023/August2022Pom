@@ -1,12 +1,17 @@
 package com.firebase.test.base;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.time.Duration;
+import java.util.Date;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -56,7 +61,16 @@ public class BaseClass  {
 		
 		@AfterMethod
 		public static void tearDown() {
+			Logger.info("After method execution has started");
+			String path = fullScreenshot();
+			try {
+				report.addScreenshot(path,"Full page screenshot");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			closeBrowser();
+	
 		}
 	@AfterTest
 	public static void tearDownAfterTest() {
@@ -77,9 +91,27 @@ public class BaseClass  {
 		                break;
 		default :   break;
 		}
-
 	}
-public static void clearElement(WebElement element, String objname) {
+		public static void closeBrowser(){
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			driver.close();
+		}
+		public static void goToUrl(String url) {
+			driver.get(url);
+			driver.manage().window().maximize();
+		}
+		
+		
+		
+		
+
+	
+/*public static void clearElement(WebElement element, String objname) {
 	if(element.isDisplayed()) {
 		element.clear();
 		report.logPass("pass:" + objname +"element cleared");
@@ -150,9 +182,9 @@ public static void clearElement(WebElement element, String objname) {
 	public static String readText(WebElement element,String objname) {
 	waitUntilVisible(element,objname);
 	String text = element.getText();
-			return text;
-	}
-	public static void loginToSalesforceMethod() {
+			return text;*/
+	
+	/*public static void loginToSalesforceMethod() {
 		CommonUtilities CU = new CommonUtilities();
         Properties applicationPropertiesFile = CU.loadfile("applicationProperties");
 		
@@ -169,9 +201,9 @@ public static void clearElement(WebElement element, String objname) {
  	    clickElement(rememberme,"remember me");
     	WebElement loginbutton = driver.findElement(By.xpath("//*[@id=\"Login\"]"));
     	waitUntilVisible(loginbutton,"loginbutton");
-    	clickElement(loginbutton,"login button");
+    	clickElement(loginbutton,"login button");*/
 		
-	}
+	
 	public static void waitUntilPageLoads() {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 	}
@@ -182,6 +214,46 @@ public static void clearElement(WebElement element, String objname) {
 		}catch(Exception e) {
 			report.logFail("Validation failed");
 
+		}
+	}
+	public static String fullScreenshot() {
+		 WebElement screenshotElement = driver.findElement(By.tagName("body"));
+		  File screenshotBase = screenshotElement.getScreenshotAs(OutputType.FILE);
+	      Date date = new Date();
+		  File screenshot = new File("src/test/resources/screenshots/screenshot" + date.getTime() + ".png");
+		  try {
+		  FileUtils.copyFile(screenshotBase,screenshot);
+		  }catch(Exception e) {
+			  e.printStackTrace();
+			  report.logFail("Screenshot error");
+
+		  }
+
+		  report.logPass("Screenshot done");
+		  return screenshot.getAbsolutePath();
+
+	}
+
+	public static void screenshot(WebElement element) {
+		  File screenshotBase = element.getScreenshotAs(OutputType.FILE);
+	      Date date = new Date();
+		  File screenshot = new File("src/test/resources/screenshots/screenshot" + date.getTime() + ".png");
+		  try {
+		  FileUtils.copyFile(screenshotBase,screenshot);
+		  }catch(Exception e) {
+			  e.printStackTrace();
+			  report.logFail("Screenshot error");
+
+		  }
+		  
+		  report.logPass("Screenshot done");
+	}
+	public static void addScreenshot() {
+		String path = fullScreenshot();
+		try {
+		report.addScreenshot(path, "ss");
+		}catch(Exception e) {
+			report.logFail("Screenshot failed");
 		}
 	}
 

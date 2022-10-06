@@ -13,7 +13,7 @@
       
      <methods>
         
-       <include name="checkRememberMe3()"/> 
+       <include name="ForgotPassword4B()"/> 
        
       </methods>
       
